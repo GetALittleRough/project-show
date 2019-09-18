@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { of as observableOf, Observable } from 'rxjs';
-// import { HttpClientModule } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { LiveUpdateChart, PieChart, EarningData } from '../data/earning';
 
 @Injectable({
@@ -8,8 +8,8 @@ import { LiveUpdateChart, PieChart, EarningData } from '../data/earning';
 })
 export class UsageinfoService extends EarningData {
 
-  // private http: HttpClientModule;
-  // private url: string = 'http://localhost:3000/loadData';
+  private http: HttpClient;
+  private url: string = 'http://localhost:3000/loadData';
   private currentDate: Date = new Date();
   private currentValue = Math.random() * 1000;
   private ONE_DAY = 24 * 3600 * 1000;
@@ -64,7 +64,22 @@ export class UsageinfoService extends EarningData {
       .map(item => this.generateRandomLiveChartData());
   }
 
+  requestingLiveChartData() {
+    this.currentDate = new Date(+this.currentDate + this.ONE_DAY);
+    this.http.get(this.url)
+      .subscribe(
+        (data) => {
+          console.log(data);
+        },
+      );
+    return this.http.get(this.url);
+  }
+
   generateRandomLiveChartData() {
+    this.requestingLiveChartData()
+      .subscribe(data => {
+        console.log(data)
+      });
     this.currentDate = new Date(+this.currentDate + this.ONE_DAY);
     this.currentValue = this.currentValue + Math.random() * 20 - 11;
 
