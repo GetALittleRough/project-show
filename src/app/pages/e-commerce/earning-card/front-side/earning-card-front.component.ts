@@ -13,12 +13,15 @@ export class EarningCardFrontComponent implements OnDestroy, OnInit {
   private alive = true;
 
   @Input() selectedCurrency: string = 'Bitcoin';
-
+  @Input() title: string = '服务器';
+  @Input() dataType: string = 'CPU占用率';
+  
   intervalSubscription: Subscription;
   currencies: string[] = ['Bitcoin', 'Tether', 'Ethereum'];
   currentTheme: string;
   earningLiveUpdateCardData: LiveUpdateChart;
   liveUpdateChartData: { value: [string, number] }[];
+  titles: string [] = ['服务器', '客户端'];
 
   constructor(private themeService: NbThemeService,
               private earningService: EarningData) {
@@ -38,6 +41,12 @@ export class EarningCardFrontComponent implements OnDestroy, OnInit {
       this.selectedCurrency = currency;
 
       this.getEarningCardData(this.selectedCurrency);
+    }
+  }
+
+  changeTitle(title) {
+    if (this.title !== title) {
+      this.title = title;
     }
   }
 

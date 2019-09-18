@@ -59,11 +59,12 @@ export class EarningLiveUpdateChartComponent implements AfterViewInit, OnDestroy
       },
       xAxis: {
         type: 'time',
+        data: ['Sun', 'Mon', 'Tue', 'Wen', 'Thu', 'Fri', "Sat"],
         axisLine: {
-          show: false,
+          show: true,
         },
         axisLabel: {
-          show: false,
+          show: true,
         },
         axisTick: {
           show: false,
@@ -75,10 +76,10 @@ export class EarningLiveUpdateChartComponent implements AfterViewInit, OnDestroy
       yAxis: {
         boundaryGap: [0, '5%'],
         axisLine: {
-          show: false,
+          show: true,
         },
         axisLabel: {
-          show: false,
+          show: true,
         },
         axisTick: {
           show: false,
