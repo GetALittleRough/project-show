@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { of as observableOf, Observable } from 'rxjs';
-import { HttpClientModule } from '@angular/common/http';
+// import { HttpClientModule } from '@angular/common/http';
 import { LiveUpdateChart, PieChart, EarningData } from '../data/earning';
 
 @Injectable({
