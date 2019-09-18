@@ -15,7 +15,6 @@ export class EarningCardFrontComponent implements OnDestroy, OnInit {
   @Input() selectedCurrency: string = 'Bitcoin';
   @Input() title: string = '服务器';
   @Input() dataType: string = 'CPU占用率';
-  
   intervalSubscription: Subscription;
   currencies: string[] = ['Bitcoin', 'Tether', 'Ethereum'];
   currentTheme: string;

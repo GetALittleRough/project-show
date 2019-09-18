@@ -4,13 +4,12 @@ import { HttpClientModule } from '@angular/common/http';
 import { LiveUpdateChart, PieChart, EarningData } from '../data/earning';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
-export class UsageinfoService extends EarningData{
+export class UsageinfoService extends EarningData {
 
-  private http: HttpClientModule;
-  private url: string = 'http://localhost:3000/loadData'
-  
+  // private http: HttpClientModule;
+  // private url: string = 'http://localhost:3000/loadData';
   private currentDate: Date = new Date();
   private currentValue = Math.random() * 1000;
   private ONE_DAY = 24 * 3600 * 1000;

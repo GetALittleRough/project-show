@@ -59,7 +59,7 @@ export class EarningLiveUpdateChartComponent implements AfterViewInit, OnDestroy
       },
       xAxis: {
         type: 'time',
-        data: ['Sun', 'Mon', 'Tue', 'Wen', 'Thu', 'Fri', "Sat"],
+        data: ['Sun', 'Mon', 'Tue', 'Wen', 'Thu', 'Fri', 'Sat'],
         axisLine: {
           show: true,
         },
